@@ -1,0 +1,30 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="ospfe.singole_procedure">
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.CIGField"
+       name="CIG"
+       />
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.StrutturaProponenteField"
+       name="Struttura proponente"
+       />
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.SceltaContraenteField"
+       name="Procedura scelta contraente"
+       />
+
+</configure>

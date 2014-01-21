@@ -1,0 +1,25 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="ospfe.singole_procedure">
+
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.ICIGColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".regex.ValidatorCIG"
+       name="cig"
+       />
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.IStrutturaProponenteColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".regex.ValidatorStrutturaProponente"
+       name="struttura_proponente"
+       />
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.ISceltaContraenteColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".override.ValidatorEnforceVocabulary"
+       name="enforceVocabulary"
+       />
+
+</configure>

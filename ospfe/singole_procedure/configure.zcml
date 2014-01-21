@@ -1,0 +1,17 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:five="http://namespaces.zope.org/five"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="ospfe.singole_procedure">
+
+  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="collective.tablepage" />
+  <include package=".browser" />
+  <include package=".fields" />
+  <include package=".validators" />
+
+  <interface interface=".interfaces.ISingoleProcedureInterface" />
+  
+</configure>
