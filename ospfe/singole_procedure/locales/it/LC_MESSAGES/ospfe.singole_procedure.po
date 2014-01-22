@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-21 17:18+0000\n"
+"POT-Creation-Date: 2014-01-22 13:18+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: Luca Fabbri <keul@redturtle.it>\n"
 "Language-Team: RedTurtle Technology <sviluppoplone@redturtle.it>\n"
@@ -15,18 +15,92 @@ msgstr ""
 "Domain: ospfe.singole_procedure\n"
 "X-Is-Fallback-For: it-ch it-it\n"
 
+#: ../browser/validation_report.pt:17
+msgid "Back to table"
+msgstr "Torna alla tabella"
+
+#: ../browser/validation_report.pt:29
+msgid "Errors found!"
+msgstr "Errori trovati"
+
+#: ../browser/validation_report.pt:38
+msgid "First error found:"
+msgstr "Primo errore trovato:"
+
+#: ../browser/utility_viewlet.pt:3
+msgid "See generated XML"
+msgstr "Vedi XML generato"
+
+#: ../browser/validation_report.pt:24
+msgid "Show if the generated XML report is in the proper format"
+msgstr "Mostra se l'XML generato è nel formato corretto"
+
+#: ../browser/utility_viewlet.pt:4
+msgid "Validate XML"
+msgstr "Valida XML"
+
+#: ../browser/validation_report.pt:13
+msgid "Validation report"
+msgstr "Report di validazione"
+
+#: ../browser/validation_report.pt:33
+msgid "Well done!"
+msgstr "Ben fatto!"
+
+#: ../browser/validation_report.pt:34
+msgid "Your XML is valid!"
+msgstr "Il tuo XML è valido!"
+
 #. Default: "\"$value\" is not a valid VAT/NIN"
-#: ../validators/regex.py:39
+#: ../validators/regex.py:26
 msgid "error_bad_cf"
-msgstr "\"$value\" non è un valido Codice Fiscale/Partita I.V.A."
+msgstr "\"$value\" non è un Codice Fiscale/Partita I.V.A. valido"
 
 #. Default: "CIG must be a value of no more than 10 chars"
-#: ../validators/regex.py:20
+#: ../validators/base.py:18
 msgid "error_bad_cig"
 msgstr "Il CIG deve essere un valore di non più di 10 caratteri"
 
+#. Default: "Line $line: not a proper format. Please insert a denomination followed by VAT/NIN.\nIn case of a group, append also the role inside brackets"
+#: ../validators/regex.py:47
+msgid "error_bad_member"
+msgstr ""
+"Riga $line: non è nel formato corretto.\n"
+"Prego inserire una denominazione seguita da un Codice Fiscale/Partita I.V.A.\n"
+"In caso di un gruppo, aggiungere anche il ruolo dentro a delle parentesi"
+
+#. Default: "Line $line: provided value \"$value\" for VAT/NIN is invalid."
+#: ../validators/regex.py:55
+msgid "error_bad_member_cf"
+msgstr "Riga $line: il valore fornito \"$value\" per Codice Fiscale/PArtita I.V.A. è invalido."
+
+#. Default: "Line $line: role \"$value\" is invalid. Must be one of the following: $roles"
+#: ../validators/regex.py:60
+msgid "error_bad_roles"
+msgstr "Riga $line: il ruolo \"$value\" è invalido. Deve essere uno dei deguenti: $roles"
+
 #. Default: "You must provide a denomination, followed by a VAT or NIN"
-#: ../validators/regex.py:34
+#: ../validators/regex.py:21
 msgid "error_bad_struttura_proponente"
 msgstr "Devi fornire una denominazione, seguita dal Codice Fiscale/P. I.V.A."
+
+#. Default: "The value for \"$name\" must contain no more than 250 characters ($count provided)."
+#: ../validators/base.py:32
+msgid "error_max_chars"
+msgstr "Il valore per \"$name\" deve contenere non più di 250 caratteri ($count forniti)."
+
+#. Default: "Provide two dates in the format YYYY-MM-DD"
+#: ../validators/regex.py:79
+msgid "error_no_dates"
+msgstr "Fornisci due date nel formato AAAA-MM-GG"
+
+#. Default: "When groups are used, they must be composed by at least 2 members"
+#: ../validators/regex.py:66
+msgid "error_too_few_groups"
+msgstr "Quando sono usati dei gruppi, questi devono essere composti da almeno due membri"
+
+#. Default: "One or more errors has been found. This XML is not valid!"
+#: ../browser/validation_report.pt:30
+msgid "msg_invalid_xml"
+msgstr "Sono stati trovati uno o più errori. Questo XML non è valido!"
 

@@ -7,19 +7,6 @@ from ospfe.singole_procedure import config
 from ospfe.singole_procedure import _
 
 
-class ValidatorCIG(object):
-    """A string, max 10 chars"""
-    implements(IFieldValidator)
-
-    def __init__(self, field):
-        self.field = field
-
-    def validate(self, configuration):
-        value = self.field.request.form.get(configuration['id'])
-        if value and len(value)>10:
-            return _('error_bad_cig', default='CIG must be a value of no more than 10 chars')
-
-
 class ValidatorStrutturaProponente(object):
     """A string that match a proper format for struttura proponente (description and cf)"""
     implements(IFieldValidator)
@@ -33,9 +20,66 @@ class ValidatorStrutturaProponente(object):
         if value and not match:
             return _('error_bad_struttura_proponente',
                      default='You must provide a denomination, followed by a VAT or NIN')
+        denominazione = match.groupdict()['denominazione']
+        if len(denominazione)>250:
+            return _('error_max_chars', default='The value for "$name" must contain no more than 250 characters ($count provided).',
+                     mapping={'name': 'denominazione',
+                              'count': len(denominazione)})
+
         cf = match.groupdict()['cf']
         cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
         if not cf_match:
             return _('error_bad_cf',
                      default='"$value" is not a valid VAT/NIN',
                      mapping={'value': cf})
+
+
+class ValidatorOperatoriAggiudicatari(object):
+    """Must fit a weel-defined regex"""
+    implements(IFieldValidator)
+
+    def __init__(self, field):
+        self.field = field
+
+    def validate(self, configuration):
+        value = self.field.request.form.get(configuration['id'])
+        value = value or ''
+        lines = value.splitlines()
+        results = []
+        roles_count = 0
+        for i, l in enumerate(lines):
+            match = re.match(config.ACTORS_MODEL, l)
+            if not match:
+                return _('error_bad_member',
+                         default='Line $line: not a proper format. Please insert a denomination followed by VAT/NIN.\n'
+                                 'In case of a group, append also the role inside brackets',
+                         mapping={'line': i+1})
+
+            cf = match.groupdict()['cf']
+            cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
+            if not cf_match:
+                return _('error_bad_member_cf',
+                         default='Line $line: provided value \"$value\" for VAT/NIN is invalid.',
+                         mapping={'line': i+1, 'value': cf})                
+            ruolo = match.groupdict()['ruolo']
+            if ruolo and ruolo not in config.RUOLO_VOCABULARY:
+                return _('error_bad_roles',
+                         default='Line $line: role \"$value\" is invalid. Must be one of the following: $roles',
+                         mapping={'line': i+1, 'value': ruolo, 'roles': ', '.join(config.RUOLO_VOCABULARY)})
+            elif ruolo:
+                roles_count += 1                
+        if roles_count==1:
+                return _('error_too_few_groups',
+                         default='When groups are used, they must be composed by at least 2 members')            
+
+class ValidatorDates(object):
+    """Two dates in the format YYYY-MM-DD, with a middle separator"""
+    implements(IFieldValidator)
+
+    def __init__(self, field):
+        self.field = field
+
+    def validate(self, configuration):
+        value = self.field.request.form.get(configuration['id'])
+        if value and not re.match(config.DATES_MODEL, value):
+            return _('error_no_dates', default='Provide two dates in the format YYYY-MM-DD')

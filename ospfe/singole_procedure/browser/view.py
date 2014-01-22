@@ -1,8 +1,11 @@
 # -*- coding: utf-8 -*-
 
 import re
+import lxml
 
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
+from StringIO import StringIO
 from collective.tablepage.interfaces import IDataStorage
 from ospfe.singole_procedure import config
 
@@ -89,9 +92,37 @@ class SingoleProcedureXMLView(BrowserView):
         """Get two dates from the data"""
         data = data or ''
         result = {'dstart': '', 'dend': ''}
-        match = re.match(config.TEMPI_COMPLETAMENTO_MODEL, data)
+        match = re.match(config.DATES_MODEL, data)
         if match:
             result['dstart'] = match.groupdict()['start']
             result['dend'] = match.groupdict()['end']
         return result
+
+
+class XMLValidationView(BrowserView):
+    """A view that show validation report"""
+
+    def __init__(self, context, request):
+        self.context = context
+        self.request = request
+        request.set('disable_border', True)
+        self.errors = None
+
+    def validate(self):
+        context = self.context
+        xml_source = StringIO(context.restrictedTraverse('@@dataset.xml')().encode('utf-8'))
+        portal = getToolByName(context, 'portal_url').getPortalObject()
+        xsd_source = portal.restrictedTraverse('++resource++ospfe.singole_procedure.resources/datasetAppaltiL190.xsd')
+        f = open(xsd_source.context.path)
+        xmlschema_doc = lxml.etree.parse(f)
+        f.close()
+        xmlschema = lxml.etree.XMLSchema(xmlschema_doc)
+        try:
+            xmlschema.assertValid(lxml.etree.parse(xml_source))
+        except lxml.etree.DocumentInvalid, inst:
+            self.errors = str(inst)
+
+    def __call__(self):
+        self.validate()
+        return self.index()
 

@@ -6,20 +6,43 @@
    <adapter
        for="ospfe.singole_procedure.fields.interfaces.ICIGColumnField"
        provides="collective.tablepage.interfaces.IFieldValidator"
-       factory=".regex.ValidatorCIG"
+       factory=".base.ValidatorCIG"
        name="cig"
        />
+
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.IMax250CharsColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".base.ValidatorMax250Chars"
+       name="max_chars"
+       />
+
    <adapter
        for="ospfe.singole_procedure.fields.interfaces.IStrutturaProponenteColumnField"
        provides="collective.tablepage.interfaces.IFieldValidator"
        factory=".regex.ValidatorStrutturaProponente"
        name="struttura_proponente"
        />
+
    <adapter
        for="ospfe.singole_procedure.fields.interfaces.ISceltaContraenteColumnField"
        provides="collective.tablepage.interfaces.IFieldValidator"
        factory=".override.ValidatorEnforceVocabulary"
        name="enforceVocabulary"
+       />
+
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.IOperatoriAggiudicatariColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".regex.ValidatorOperatoriAggiudicatari"
+       name="operatori_aggiudicatari"
+       />
+
+   <adapter
+       for="ospfe.singole_procedure.fields.interfaces.IDatesColumnField"
+       provides="collective.tablepage.interfaces.IFieldValidator"
+       factory=".regex.ValidatorDates"
+       name="dates"
        />
 
 </configure>

@@ -6,6 +6,7 @@ from collective.tablepage.interfaces import IFieldValidator
 from collective.tablepage import tablepageMessageFactory as tpmf
 from ospfe.singole_procedure import config
 
+
 class ValidatorEnforceVocabulary(object):
     """Validate that the data fit one of the vocabulary values (fixed vocabulary)"""
     implements(IFieldValidator)

@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="ospfe.singole_procedure">
+
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main">
+        <h1 class="documentFirstHeading" i18n:translate=""> 
+            Validation report
+        </h1>
+
+        <a href=""
+           class="link-parent"
+           tal:attributes="href string:${context/absolute_url}/edit-table"
+           i18n:translate="">
+            Back to table
+        </a>
+
+        <p class="documentDescription" i18n:translate="">
+            Show if the generated XML report is in the proper format
+        </p>
+
+		<dl class="portalMessage error" tal:condition="view/errors">
+			<dt i18n:translate="">Errors found!</dt>
+			<dd i18n:translate="msg_invalid_xml">One or more errors has been found. This XML is not valid!</dd>
+		</dl>
+		<dl class="portalMessage" tal:condition="not:view/errors">
+			<dt i18n:translate="">Well done!</dt>
+			<dd i18n:translate="">Your XML is valid!</dd>
+		</dl>
+
+		<div tal:condition="view/errors" class="avcpMessage avcpValidationKO">
+			<strong i18n:translate="">First error found:</strong><br/>
+			<span tal:replace="view/errors" />
+		</div>
+
+    </tal:main-macro>
+</metal:main>
+
+</body>
+</html>
+

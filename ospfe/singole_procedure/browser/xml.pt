@@ -11,7 +11,7 @@
 	<dataPubbicazioneDataset tal:content="view/effective">2012-08-13</dataPubbicazioneDataset>
 	<entePubblicatore>AVCP</entePubblicatore>
 	<dataUltimoAggiornamentoDataset tal:content="view/modified">2012-09-15</dataUltimoAggiornamentoDataset>
-	<annoRiferimento>2012</annoRiferimento>
+	<annoRiferimento>2013</annoRiferimento>
 	<urlFile tal:content="string:${context/absolute_url}/dataset.xml"> http://www.pubblicazione.it/dataset1.xml </urlFile>
 	<licenza>IODL</licenza>
 </metadata>

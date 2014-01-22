@@ -1,0 +1,6 @@
+<div id="avcp-xml-validation" i18n:domain="ospfe.singole_procedure">
+	<ul>
+		<li><a href="" tal:attributes="href string:${context/absolute_url}/dataset.xml" i18n:translate="">See generated XML</a></li>
+		<li><a href="" tal:attributes="href string:${context/absolute_url}/@@avcp-validation" i18n:translate="">Validate XML</a></li>
+	</ul>
+</div>

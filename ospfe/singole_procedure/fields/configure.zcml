@@ -23,8 +23,33 @@
        for="..interfaces.ISingoleProcedureInterface
 	        zope.publisher.interfaces.browser.IBrowserRequest"
        provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.OggettoField"
+       name="Oggetto"
+       />
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
        factory=".fields.SceltaContraenteField"
        name="Procedura scelta contraente"
        />
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.OperatoriAggiudicatariField"
+       name="Operatori / Aggiudicatari"
+       />
+
+   <adapter
+       for="..interfaces.ISingoleProcedureInterface
+	        zope.publisher.interfaces.browser.IBrowserRequest"
+       provides="collective.tablepage.interfaces.IColumnField"
+       factory=".fields.DatesField"
+       name="Date"
+       />
+
 
 </configure>

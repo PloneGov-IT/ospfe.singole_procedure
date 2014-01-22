@@ -6,6 +6,11 @@
 
   <include package="plone.app.contentmenu" />
 
+  <browser:resourceDirectory
+     name="ospfe.singole_procedure.resources"
+	 directory="resources"
+	 />
+
   <browser:page
 	 for="..interfaces.ISingoleProcedureInterface"
 	 name="dataset.xml"
@@ -13,5 +18,23 @@
 	 template="xml.pt"
 	 permission="zope2.View"
 	 />
+
+  <browser:page
+	 for="..interfaces.ISingoleProcedureInterface"
+	 name="avcp-validation"
+	 class=".view.XMLValidationView"
+	 template="validation_report.pt"
+	 permission="collective.tablepage.ManageTable"
+	 />
+
+  <browser:viewlet
+     name="singole_procedure_utility"
+     for="ospfe.singole_procedure.interfaces.ISingoleProcedureInterface"
+	 view="collective.tablepage.browser.view.ITableEditView"
+     manager="plone.app.layout.viewlets.interfaces.IBelowContentBody"
+     class="plone.app.layout.viewlets.common.ViewletBase"
+	 template="utility_viewlet.pt"
+     permission="collective.tablepage.ManageTable"
+     />
 
 </configure>
