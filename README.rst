@@ -5,6 +5,11 @@ necessario esporre i dati in formato XML.
 __ http://plone.org/products/collective.tablepage
 __ http://www.avcp.it/portal/public/classic/AttivitaAutorita/AttiDellAutorita/_Atto?ca=5397
 
+.. image:: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-02.png/image_large
+   :alt: Configurazione tabella
+   :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-02.png
+   :align: center
+
 .. contents::
 
 Installazione
@@ -74,6 +79,11 @@ in modo puntuale.
 Struttura del documento
 -----------------------
 
+.. image:: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-01.png/image_preview
+   :alt: Configurazione tabella
+   :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-01.png
+   :align: right
+
 Il prodotto da' per scontato che la tabella generata abbia una ben definita struttura a *9 colonne* e che gli
 id delle colonne siano:
 
@@ -97,6 +107,11 @@ Per esempio:
 
 Prima di esporre il sorgente XML è possibile effettuare una validazione dello stesso. Dalla pagina di modifica della tabella
 sarà ora disponibile un nuovo link "*Valida XML*", che eseguirà la validazione secondo lo schema fornito da AVCP.
+
+.. image:: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-03.png/image_large
+   :alt: Configurazione tabella
+   :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-03.png
+   :align: center
 
 Dipendenze e versioni
 =====================
