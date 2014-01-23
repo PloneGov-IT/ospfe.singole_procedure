@@ -58,10 +58,12 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
 ``Operatori / Aggiudicatari``
     Un campo valido per entrambi i tipi di dato. Permette di definire una sequenza (un elemento per riga) di partecipanti
     o aggiundicatari del bando.
-    
+        
     Ogni elemento deve essere composto dalla denominazione seguita dal codice fiscale o partita I.V.A.
     
-    In caso di gruppi va infine posto (tra parentesi) il ruolo, secondo il vocabolario definito dallo schema XSD.
+    In presenza di consorziate va infine posto (tra parentesi) il ruolo, secondo il vocabolario definito dallo schema XSD.
+    Le corsorziate definiscono quindi un gruppo, che va separato dagli altri gruppi, o dai partecipanti/aggiudicatari singoli,
+    da una riga vuota.
 ``Date``
     Un campo stringa per l'inserimento delle due date. Le date *devono* essere nel formato AAAA-MM-GG e possono essere
     separate da un carattere separatore quale "-", "/".
@@ -104,10 +106,8 @@ Il prodotto è stato testato su Plone 3.3, ma *dovrebbe* funzionare senza proble
 Limiti
 ======
 
-I seguenti limiti sono noti:
-
-* Non viene fornito un XML per l'indice dei dataset (potrebbe essere fatto con una vista apposita sugli oggetti Collezione)
-* Non sono (ancora) supportati gruppi multipli nei campi "elenco_operatori" e "aggiudicatario".
+Non viene fornito un XML per l'indice dei dataset. Ipoteticamente potrebbe essere fatto con una vista apposita
+sugli oggetti Collezione.
 
 Crediti
 =======

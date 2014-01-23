@@ -29,34 +29,32 @@
 		</oggetto>
 		<sceltaContraente tal:content="row/procedura_scelta">17-AFFIDAMENTO DIRETTO EX ART. 5 DELLA LEGGE N.381/91</sceltaContraente>
 		<partecipanti>
-			<tal:partecipante repeat="partecipante row/elenco_operatori">
-				<raggruppamento tal:condition="partecipante/ruolo">
-					<membro>
-						<codiceFiscale tal:content="partecipante/cf">00000000001</codiceFiscale>
-						<ragioneSociale tal:content="partecipante/ragione_sociale">Azienda 1</ragioneSociale>
-						<ruolo tal:content="partecipante/ruolo">04-CAPOGRUPPO</ruolo>
-					</membro>
-				</raggruppamento>
-				<partecipante tal:condition="not:partecipante/ruolo">
-					<codiceFiscale tal:content="partecipante/cf">00000000001</codiceFiscale>
-					<ragioneSociale tal:content="partecipante/ragione_sociale">Azienda 1</ragioneSociale>
-				</partecipante>
-			</tal:partecipante>
+			<raggruppamento tal:condition="row/partecipantiRaggruppamento"
+			                tal:repeat="partecipanti row/partecipantiRaggruppamento">
+				<membro tal:repeat="membro partecipanti">
+					<codiceFiscale tal:content="membro/cf">00000000001</codiceFiscale>
+					<ragioneSociale tal:content="membro/ragione_sociale">Azienda 1</ragioneSociale>
+					<ruolo tal:content="membro/ruolo">04-CAPOGRUPPO</ruolo>
+				</membro>
+			</raggruppamento>
+			<partecipante tal:repeat="partecipante row/partecipanti">
+				<codiceFiscale tal:content="partecipante/cf">00000000001</codiceFiscale>
+				<ragioneSociale tal:content="partecipante/ragione_sociale">Azienda 1</ragioneSociale>
+			</partecipante>
 		</partecipanti>
 		<aggiudicatari>
-			<tal:aggiudicatario repeat="aggiudicatario row/aggiudicatario">
-				<aggiudicatarioRaggruppamento tal:condition="aggiudicatario/ruolo">
-					<membro>
-						<codiceFiscale tal:content="aggiudicatario/cf">00000000001</codiceFiscale>
-						<ragioneSociale tal:content="aggiudicatario/ragione_sociale">Azienda 1</ragioneSociale>
-						<ruolo tal:content="aggiudicatario/ruolo">04-CAPOGRUPPO</ruolo>
-					</membro>
-				</aggiudicatarioRaggruppamento>
-				<aggiudicatario tal:condition="not:aggiudicatario/ruolo">
-					<codiceFiscale tal:content="aggiudicatario/cf">00000000001</codiceFiscale>
-					<ragioneSociale tal:content="aggiudicatario/ragione_sociale">Azienda 1</ragioneSociale>
-				</aggiudicatario>
-			</tal:aggiudicatario>
+			<aggiudicatarioRaggruppamento tal:condition="row/aggiudicatarioRaggruppamento"
+			                              tal:repeat="aggiudicatari row/aggiudicatarioRaggruppamento">
+				<membro tal:repeat="membro aggiudicatari">
+					<codiceFiscale tal:content="membro/cf">00000000001</codiceFiscale>
+					<ragioneSociale tal:content="membro/ragione_sociale">Azienda 1</ragioneSociale>
+					<ruolo tal:content="membro/ruolo">04-CAPOGRUPPO</ruolo>
+				</membro>
+			</aggiudicatarioRaggruppamento>
+			<aggiudicatario tal:repeat="aggiudicatario row/aggiudicatario">
+				<codiceFiscale tal:content="aggiudicatario/cf">00000000001</codiceFiscale>
+				<ragioneSociale tal:content="aggiudicatario/ragione_sociale">Azienda 1</ragioneSociale>
+			</aggiudicatario>
 		</aggiudicatari>
 		<importoAggiudicazione tal:content="row/importo_aggiudicazione">1000.00</importoAggiudicazione>
 		<tempiCompletamento tal:condition="row/tempi_completamento">

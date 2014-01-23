@@ -43,7 +43,9 @@ class SingoleProcedureXMLView(BrowserView):
                    'struttura_proponente': self._get_struttura_proponente(item.get('struttura_proponente', '')),
                    'oggetto_bando': item.get('oggetto_bando', ''),
                    'procedura_scelta': (item.get('procedura_scelta', '') in config.SCELTA_CONTRAENTE_VOCABULARY and item.get('procedura_scelta', '') or ''),
-                   'elenco_operatori': self._get_actors(item.get('elenco_operatori', '')),
+                   'partecipantiRaggruppamento': self._get_groups_actors(item.get('elenco_operatori', '')),
+                   'partecipanti': self._get_actors(item.get('elenco_operatori', '')),
+                   'aggiudicatarioRaggruppamento': self._get_groups_actors(item.get('aggiudicatario', '')),
                    'aggiudicatario': self._get_actors(item.get('aggiudicatario', '')),
                    'importo_aggiudicazione': importo_aggiudicazione,
                    'tempi_completamento': self._get_tempi_completamento(item.get('tempi_completamento', '')),
@@ -64,27 +66,45 @@ class SingoleProcedureXMLView(BrowserView):
                 result['cf'] = cf
         return result
 
+    def _get_groups_actors(self, data):
+        """Return a list of list of dicts composed as ragione_sociale, cf, ruolo"""
+        # This fix some strange nully data from the storage get
+        data = data or ''
+        results = []
+        data = data.replace("\r", '')
+        groups = data.split("\n\n")
+        for g in groups:
+            inner_result = []
+            for l in g.splitlines():
+                match = re.match(config.GROUP_ACTORS_MODEL, l)
+                if match:
+                    result = {'cf': '', 'ragione_sociale': '', 'ruolo': ''}
+                    result['ragione_sociale'] = match.groupdict()['ragione_sociale']
+                    cf = match.groupdict()['cf']
+                    cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
+                    if cf_match:
+                        result['cf'] = cf
+                    result['ruolo'] = match.groupdict()['ruolo']
+                    inner_result.append(result)
+            if inner_result:
+                results.append(inner_result)
+        return results
+
     def _get_actors(self, data):
-        """Return a list of dicts with two possible formats:
-            ragione_sociale, cf ruolo
-        or
-            ragione_sociale, cf
-        """
+        """Return a list dicts composed as ragione_sociale, cf"""
         # This fix some strange nully data from the storage get
         data = data or ''
         lines = data.splitlines()
         results = []
         for l in lines:
-            result = {'cf': '', 'ragione_sociale': '', 'ruolo': ''}
             match = re.match(config.ACTORS_MODEL, l)
             if match:
-                cf = match.groupdict()['cf']
+                result = {'cf': '', 'ragione_sociale': '', }
                 result['ragione_sociale'] = match.groupdict()['ragione_sociale']
-                ruolo = match.groupdict()['ruolo']
+                cf = match.groupdict()['cf']
                 cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
                 if cf_match:
                     result['cf'] = cf
-                result['ruolo'] = ruolo in config.RUOLO_VOCABULARY and ruolo or ''
                 results.append(result)
         return results
 

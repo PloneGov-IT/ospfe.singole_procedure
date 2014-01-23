@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2014-01-22 13:18+0000\n"
+"POT-Creation-Date: 2014-01-23 07:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,7 +31,7 @@ msgid "See generated XML"
 msgstr ""
 
 #: ../browser/validation_report.pt:24
-msgid "Show if the generated XML report is in the propert format"
+msgid "Show if the generated XML report is in the proper format"
 msgstr ""
 
 #: ../browser/utility_viewlet.pt:4
@@ -51,7 +51,7 @@ msgid "Your XML is valid!"
 msgstr ""
 
 #. Default: "\"$value\" is not a valid VAT/NIN"
-#: ../validators/regex.py:26
+#: ../validators/regex.py:32
 msgid "error_bad_cf"
 msgstr ""
 
@@ -61,17 +61,17 @@ msgid "error_bad_cig"
 msgstr ""
 
 #. Default: "Line $line: not a proper format. Please insert a denomination followed by VAT/NIN.\nIn case of a group, append also the role inside brackets"
-#: ../validators/regex.py:47
+#: ../validators/regex.py:65
 msgid "error_bad_member"
 msgstr ""
 
 #. Default: "Line $line: provided value \"$value\" for VAT/NIN is invalid."
-#: ../validators/regex.py:55
+#: ../validators/regex.py:73
 msgid "error_bad_member_cf"
 msgstr ""
 
 #. Default: "Line $line: role \"$value\" is invalid. Must be one of the following: $roles"
-#: ../validators/regex.py:60
+#: ../validators/regex.py:78
 msgid "error_bad_roles"
 msgstr ""
 
@@ -82,16 +82,17 @@ msgstr ""
 
 #. Default: "The value for \"$name\" must contain no more than 250 characters ($count provided)."
 #: ../validators/base.py:32
+#: ../validators/regex.py:25
 msgid "error_max_chars"
 msgstr ""
 
 #. Default: "Provide two dates in the format YYYY-MM-DD"
-#: ../validators/regex.py:79
+#: ../validators/regex.py:94
 msgid "error_no_dates"
 msgstr ""
 
-#. Default: "When groups are used, they must be composed by at least 2 members"
-#: ../validators/regex.py:66
+#. Default: "Group $gcount. When groups are used, they must be composed by at least 2 members"
+#: ../validators/regex.py:55
 msgid "error_too_few_groups"
 msgstr ""
 

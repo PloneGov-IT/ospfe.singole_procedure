@@ -47,30 +47,39 @@ class ValidatorOperatoriAggiudicatari(object):
         lines = value.splitlines()
         results = []
         roles_count = 0
+        groups_count = 1
         for i, l in enumerate(lines):
-            match = re.match(config.ACTORS_MODEL, l)
+            l = l.strip()
+            if not l:
+                if roles_count==1:
+                        return _('error_too_few_groups',
+                                 default='Group $gcount. When groups are used, they must be composed by at least 2 members',
+                                 mapping={'gcount': groups_count})            
+                roles_count = 0
+                groups_count += 1
+                continue
+            match1 = re.match(config.ACTORS_MODEL, l)
+            match2 = re.match(config.GROUP_ACTORS_MODEL, l)
+            match = match1 or match2 or None
             if not match:
                 return _('error_bad_member',
                          default='Line $line: not a proper format. Please insert a denomination followed by VAT/NIN.\n'
                                  'In case of a group, append also the role inside brackets',
                          mapping={'line': i+1})
-
+            
             cf = match.groupdict()['cf']
             cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
             if not cf_match:
                 return _('error_bad_member_cf',
                          default='Line $line: provided value \"$value\" for VAT/NIN is invalid.',
                          mapping={'line': i+1, 'value': cf})                
-            ruolo = match.groupdict()['ruolo']
+            ruolo = match.groupdict().get('ruolo')
             if ruolo and ruolo not in config.RUOLO_VOCABULARY:
                 return _('error_bad_roles',
                          default='Line $line: role \"$value\" is invalid. Must be one of the following: $roles',
                          mapping={'line': i+1, 'value': ruolo, 'roles': ', '.join(config.RUOLO_VOCABULARY)})
             elif ruolo:
-                roles_count += 1                
-        if roles_count==1:
-                return _('error_too_few_groups',
-                         default='When groups are used, they must be composed by at least 2 members')            
+                roles_count += 1
 
 class ValidatorDates(object):
     """Two dates in the format YYYY-MM-DD, with a middle separator"""
