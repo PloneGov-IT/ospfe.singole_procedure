@@ -84,18 +84,18 @@ Struttura del documento
    :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-01.png
    :align: right
 
-Il prodotto da' per scontato che la tabella generata abbia una ben definita struttura a *9 colonne* e che gli
-id delle colonne siano:
+Il prodotto da' per scontato che la tabella generata abbia una ben definita struttura a *9 colonne*
+definite in questo ordine:
 
-* cig (consigliato uso della colonna "CIG" e obbligatorietà)
-* struttura_proponente (consigliato uso della colonna "Struttura proponente" e obbligatorietà)
-* oggetto_bando (consigliato uso della colonna "Oggetto" e obbligatorietà)
-* procedura_scelta (consigliato uso della colonna "Procedura scelta contraente")
-* elenco_operatori (consigliato uso della colonna "Operatori / Aggiudicatari")
-* aggiudicatario (consigliato uso della colonna "Operatori / Aggiudicatari")
-* importo_aggiudicazione (consigliato uso della colonna "Numerico" o "Monetario")
-* tempi_completamento (consigliato uso della colonna "Date")
-* importo_somme_liquidate (consigliato uso della colonna "Numerico" o "Monetario")
+* **CIG** - consigliato uso della colonna "CIG" e obbligatorietà
+* **Struttura proponente**  - consigliato uso della colonna "Struttura proponente" e obbligatorietà
+* **Oggetto del bando** - consigliato uso della colonna "Oggetto" e obbligatorietà
+* **Procedura di scelta del contraente** - consigliato uso della colonna "Procedura scelta contraente"
+* **Elenco operatori** - consigliato uso della colonna "Operatori / Aggiudicatari"
+* **Aggiudicatario** - consigliato uso della colonna "Operatori / Aggiudicatari"
+* **Importo di aggiudicazione** - consigliato uso della colonna "Numerico" o "Monetario"
+* **Tempi completamento** - consigliato uso della colonna "Date"
+* **Importo somme liquidate** - consigliato uso della colonna "Numerico" o "Monetario"
 
 XML e Validazione
 =================

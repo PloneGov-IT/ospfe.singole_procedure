@@ -29,26 +29,30 @@ class SingoleProcedureXMLView(BrowserView):
         """Iterate on rows on the table"""
         rows = []
         for item in IDataStorage(self.context):
+
+            configuration = self.context.getPageColumns()
+            headers = [h[id] for h in configuration]
+            
             try:
-                importo_aggiudicazione = float(item.get('importo_aggiudicazione') or '')
+                importo_aggiudicazione = float(item.get(headers[6]) or '')
             except ValueError:
                 importo_aggiudicazione = None
             try:
-                importo_somme_liquidate = float(item.get('importo_somme_liquidate') or '')
+                importo_somme_liquidate = float(item.get(headers[8]) or '')
             except ValueError:
                 importo_somme_liquidate = None
-            
+                        
             row = {
-                   'cig': item.get('cig'),
-                   'struttura_proponente': self._get_struttura_proponente(item.get('struttura_proponente', '')),
-                   'oggetto_bando': item.get('oggetto_bando', ''),
-                   'procedura_scelta': (item.get('procedura_scelta', '') in config.SCELTA_CONTRAENTE_VOCABULARY and item.get('procedura_scelta', '') or ''),
-                   'partecipantiRaggruppamento': self._get_groups_actors(item.get('elenco_operatori', '')),
-                   'partecipanti': self._get_actors(item.get('elenco_operatori', '')),
-                   'aggiudicatarioRaggruppamento': self._get_groups_actors(item.get('aggiudicatario', '')),
-                   'aggiudicatario': self._get_actors(item.get('aggiudicatario', '')),
+                   'cig': item.get(headers[0]),
+                   'struttura_proponente': self._get_struttura_proponente(item.get(headers[1], '')),
+                   'oggetto_bando': item.get(headers[2], ''),
+                   'procedura_scelta': (item.get(headers[3], '') in config.SCELTA_CONTRAENTE_VOCABULARY and item.get(headers[3]) or ''),
+                   'partecipantiRaggruppamento': self._get_groups_actors(item.get(headers[4], '')),
+                   'partecipanti': self._get_actors(item.get(headers[4], '')),
+                   'aggiudicatarioRaggruppamento': self._get_groups_actors(item.get(headers[5], '')),
+                   'aggiudicatario': self._get_actors(item.get(headers[5], '')),
                    'importo_aggiudicazione': importo_aggiudicazione,
-                   'tempi_completamento': self._get_tempi_completamento(item.get('tempi_completamento', '')),
+                   'tempi_completamento': self._get_tempi_completamento(item.get(headers[7], '')),
                    'importo_somme_liquidate': importo_somme_liquidate,
                    }
             rows.append(row)
