@@ -31,7 +31,7 @@ class SingoleProcedureXMLView(BrowserView):
         for item in IDataStorage(self.context):
 
             configuration = self.context.getPageColumns()
-            headers = [h[id] for h in configuration]
+            headers = [h['id'] for h in configuration]
             
             try:
                 importo_aggiudicazione = float(item.get(headers[6]) or '')
