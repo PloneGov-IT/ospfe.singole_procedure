@@ -44,7 +44,7 @@ class SingoleProcedureXMLView(BrowserView):
             except ValueError:
                 importo_somme_liquidate = "0.00"
             row = {
-                   'cig': item.get(headers[0]),
+                   'cig': item.get(headers[0]) or '0000000000',
                    'struttura_proponente': self._get_struttura_proponente(item.get(headers[1], '')),
                    'oggetto_bando': item.get(headers[2], ''),
                    'procedura_scelta': item.get(headers[3], ''),
