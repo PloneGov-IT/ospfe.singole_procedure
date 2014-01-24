@@ -9,7 +9,7 @@ CF_MODEL = r"""^(
 ACTORS_MODEL = r"""^\s*(?P<ragione_sociale>.+)\s+(?P<cf>[a-zA-Z0-9]{11,})\s*$"""
 GROUP_ACTORS_MODEL = r"""^\s*(?P<ragione_sociale>.+)\s+(?P<cf>[a-zA-Z0-9]{11,})\s*(?:\(\s*(?P<ruolo>[A-Z0-9-]+)?\s*\))\s*$"""
 DATES_MODEL = r"""^\s*(?P<start>\d\d\d\d-\d\d-\d\d)\s*[;\-/_ ]\s*(?P<end>\d\d\d\d-\d\d-\d\d)\s*$"""
-IT_DATES_MODEL = r"""^\s*(?P<start_day>\d\d)[\-/](?P<start_month>\d\d)[\-/](?P<start_year>\d\d\d\d)\s*[;\-/_ ]\s*(?P<end_day>\d\d)[\-/](?P<end_month>\d\d)[\-/](?P<end_year>\d\d\d\d)\s*$""" 
+IT_DATES_MODEL = r"""^\s*(?P<start_day>\d{1,2})[\-/](?P<start_month>\d{1,2})[\-/](?P<start_year>\d{4})\s*[;\-/_ ]\s*(?P<end_day>\d{1,2})[\-/](?P<end_month>\d{1,2})[\-/](?P<end_year>\d{4})\s*$""" 
 
 SCELTA_CONTRAENTE_VOCABULARY = (
     "01-PROCEDURA APERTA",

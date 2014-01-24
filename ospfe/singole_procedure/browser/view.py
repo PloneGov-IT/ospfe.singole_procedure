@@ -38,17 +38,16 @@ class SingoleProcedureXMLView(BrowserView):
             try:
                 importo_aggiudicazione = float(item.get(headers[6]) or '')
             except ValueError:
-                importo_aggiudicazione = None
+                importo_aggiudicazione = "0.00"
             try:
                 importo_somme_liquidate = float(item.get(headers[8]) or '')
             except ValueError:
-                importo_somme_liquidate = None
-                        
+                importo_somme_liquidate = "0.00"
             row = {
                    'cig': item.get(headers[0]),
                    'struttura_proponente': self._get_struttura_proponente(item.get(headers[1], '')),
                    'oggetto_bando': item.get(headers[2], ''),
-                   'procedura_scelta': (item.get(headers[3], '') in config.SCELTA_CONTRAENTE_VOCABULARY and item.get(headers[3]) or ''),
+                   'procedura_scelta': item.get(headers[3], ''),
                    'partecipantiRaggruppamento': self._get_groups_actors(item.get(headers[4], '')),
                    'partecipanti': self._get_actors(item.get(headers[4], '')),
                    'aggiudicatarioRaggruppamento': self._get_groups_actors(item.get(headers[5], '')),
@@ -127,12 +126,19 @@ class SingoleProcedureXMLView(BrowserView):
             # 2. in the italian format
             match = re.match(config.IT_DATES_MODEL, data)
             if match:
-                result['dstart'] = "%s-%s-%s" % (match.groupdict()['start_year'],
-                                                 match.groupdict()['start_month'],
-                                                 match.groupdict()['start_day'])
-                result['dend'] = "%s-%s-%s" % (match.groupdict()['end_year'],
-                                                 match.groupdict()['end_month'],
-                                                 match.groupdict()['end_day'])
+                year = match.groupdict()['start_year']
+                month = match.groupdict()['start_month']
+                month = len(month)<2 and "0%s" % month or month
+                day = match.groupdict()['start_day']
+                day = len(day)<2 and "0%s" % day or day
+                result['dstart'] = "%s-%s-%s" % (year, month, day)
+
+                year = match.groupdict()['end_year']
+                month = match.groupdict()['end_month']
+                month = len(month)<2 and "0%s" % month or month
+                day = match.groupdict()['end_day']
+                day = len(day)<2 and "0%s" % day or day
+                result['dend'] = "%s-%s-%s" % (year, month, day)
         return result
 
 
