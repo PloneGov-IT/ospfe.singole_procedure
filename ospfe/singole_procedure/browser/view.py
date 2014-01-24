@@ -25,13 +25,15 @@ class SingoleProcedureXMLView(BrowserView):
     def modified(self):
         return self.context.modified().strftime('%Y-%m-%d')
 
-    def rows(self):
+    def rows(self, storage=None, headers=None):
         """Iterate on rows on the table"""
         rows = []
-        for item in IDataStorage(self.context):
+        storage = storage or IDataStorage(self.context)
+        for item in storage:
 
-            configuration = self.context.getPageColumns()
-            headers = [h['id'] for h in configuration]
+            if not headers:
+                configuration = self.context.getPageColumns()
+                headers = [h['id'] for h in configuration]
             
             try:
                 importo_aggiudicazione = float(item.get(headers[6]) or '')
