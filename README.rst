@@ -55,7 +55,7 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
 ``Struttura proponente``
     Un campo stringa che al salvataggio verifica i dati inseriti.
     
-    Tali dati *devono* includere una denominazione (massimo 250 caratteri) seguita dal codice fiscale o partita I.V.A.
+    Tali dati *devono* includere una denominazione (massimo 250 caratteri) seguita o receduta dal codice fiscale o partita I.V.A.
 ``Oggetto``
     Oggetto del bando, limitato a 250 caratteri
 ``Procedura scelta contraente``
@@ -70,8 +70,8 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
     Le corsorziate definiscono quindi un gruppo, che va separato dagli altri gruppi, o dai partecipanti/aggiudicatari singoli,
     da una riga vuota.
 ``Date``
-    Un campo stringa per l'inserimento delle due date. Le date *devono* essere nel formato AAAA-MM-GG e possono essere
-    separate da un carattere separatore quale "-", "/".
+    Un campo stringa per l'inserimento delle due date. Le date devono essere nel formato AAAA-MM-GG o anche nel
+    formato GG-MM-AAAA, e possono essere separate da un carattere separatore quale "-", "/".
 
 Dato che non si vuole "inquinare" il normale uso della pagina con tabella, l'attivazione delle nuove colonne avviene
 in modo puntuale.

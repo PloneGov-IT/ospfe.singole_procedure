@@ -12,8 +12,8 @@ class ValidatorCIG(object):
     def __init__(self, field):
         self.field = field
 
-    def validate(self, configuration):
-        value = self.field.request.form.get(configuration['id'])
+    def validate(self, configuration, data=None):
+        value = data or self.field.request.form.get(configuration['id'])
         if value and len(value)>10:
             return _('error_bad_cig', default='CIG must be a value of no more than 10 chars')
 
@@ -25,9 +25,9 @@ class ValidatorMax250Chars(object):
     def __init__(self, field):
         self.field = field
 
-    def validate(self, configuration):
+    def validate(self, configuration, data=None):
         col_id = configuration['id']
-        value = self.field.request.form.get(configuration['id'])
+        value = data or self.field.request.form.get(configuration['id'])
         if value and len(value)>250:
             return _('error_max_chars', default='The value for "$name" must contain no more than 250 characters ($count provided).',
                      mapping={'name': configuration.get('label', col_id).decode('utf-8'),

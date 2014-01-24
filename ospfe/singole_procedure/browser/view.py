@@ -59,8 +59,8 @@ class SingoleProcedureXMLView(BrowserView):
         result = {'cf': '', 'denominazione': ''}
         match = re.match(config.STRUTTURA_PROPONENTE_MODEL, data, re.DOTALL)
         if match:
-            cf = match.groupdict()['cf']
-            result['denominazione'] = match.groupdict()['denominazione']
+            cf = match.groupdict().get('cf1') or match.groupdict().get('cf2') 
+            result['denominazione'] = match.groupdict().get('denominazione1') or match.groupdict().get('denominazione2')
             cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
             if cf_match:
                 result['cf'] = cf
@@ -112,10 +112,21 @@ class SingoleProcedureXMLView(BrowserView):
         """Get two dates from the data"""
         data = data or ''
         result = {'dstart': '', 'dend': ''}
+        # 1. already in the good format
         match = re.match(config.DATES_MODEL, data)
         if match:
             result['dstart'] = match.groupdict()['start']
             result['dend'] = match.groupdict()['end']
+        else:
+            # 2. in the italian format
+            match = re.match(config.IT_DATES_MODEL, data)
+            if match:
+                result['dstart'] = "%s-%s-%s" % (match.groupdict()['start_year'],
+                                                 match.groupdict()['start_month'],
+                                                 match.groupdict()['start_day'])
+                result['dend'] = "%s-%s-%s" % (match.groupdict()['end_year'],
+                                                 match.groupdict()['end_month'],
+                                                 match.groupdict()['end_day'])
         return result
 
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-STRUTTURA_PROPONENTE_MODEL = r"""^\s*(?P<denominazione>.+)\s+(?P<cf>[a-zA-Z0-9]{11,})\s*$"""
+STRUTTURA_PROPONENTE_MODEL = r"""^\s*((?P<denominazione1>.+)\s+(?P<cf1>[a-zA-Z0-9]{11,}))|((?P<cf2>[a-zA-Z0-9]{11,})\s+(?P<denominazione2>.+))\s*$"""
 CF_MODEL = r"""^(
     [A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9A-Za-z]{3}[A-Za-z]{1} |
     [A-Za-z]{6}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{3}[A-Za-z]{1} |
@@ -8,7 +8,8 @@ CF_MODEL = r"""^(
 )$"""
 ACTORS_MODEL = r"""^\s*(?P<ragione_sociale>.+)\s+(?P<cf>[a-zA-Z0-9]{11,})\s*$"""
 GROUP_ACTORS_MODEL = r"""^\s*(?P<ragione_sociale>.+)\s+(?P<cf>[a-zA-Z0-9]{11,})\s*(?:\(\s*(?P<ruolo>[A-Z0-9-]+)?\s*\))\s*$"""
-DATES_MODEL = r"""^\s*(?P<start>\d\d\d\d-\d\d-\d\d)\s*[;\-/_ ]\s*(?P<end>\d\d\d\d-\d\d-\d\d)\s*$""" 
+DATES_MODEL = r"""^\s*(?P<start>\d\d\d\d-\d\d-\d\d)\s*[;\-/_ ]\s*(?P<end>\d\d\d\d-\d\d-\d\d)\s*$"""
+IT_DATES_MODEL = r"""^\s*(?P<start_day>\d\d)[\-/](?P<start_month>\d\d)[\-/](?P<start_year>\d\d\d\d)\s*[;\-/_ ]\s*(?P<end_day>\d\d)[\-/](?P<end_month>\d\d)[\-/](?P<end_year>\d\d\d\d)\s*$""" 
 
 SCELTA_CONTRAENTE_VOCABULARY = (
     "01-PROCEDURA APERTA",

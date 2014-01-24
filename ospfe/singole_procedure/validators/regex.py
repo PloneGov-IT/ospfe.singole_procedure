@@ -14,19 +14,19 @@ class ValidatorStrutturaProponente(object):
     def __init__(self, field):
         self.field = field
 
-    def validate(self, configuration):
-        value = self.field.request.form.get(configuration['id'])
+    def validate(self, configuration, data=None):
+        value = data or self.field.request.form.get(configuration['id'])
         match = re.match(config.STRUTTURA_PROPONENTE_MODEL, value, re.DOTALL)
         if value and not match:
             return _('error_bad_struttura_proponente',
-                     default='You must provide a denomination, followed by a VAT or NIN')
-        denominazione = match.groupdict()['denominazione']
+                     default='You must provide a denomination, and a VAT or NIN')
+        denominazione = match.groupdict().get('denominazione1') or match.groupdict().get('denominazione2')
         if len(denominazione)>250:
             return _('error_max_chars', default='The value for "$name" must contain no more than 250 characters ($count provided).',
                      mapping={'name': 'denominazione',
                               'count': len(denominazione)})
 
-        cf = match.groupdict()['cf']
+        cf = match.groupdict().get('cf1') or match.groupdict().get('cf2') 
         cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
         if not cf_match:
             return _('error_bad_cf',
@@ -41,8 +41,8 @@ class ValidatorOperatoriAggiudicatari(object):
     def __init__(self, field):
         self.field = field
 
-    def validate(self, configuration):
-        value = self.field.request.form.get(configuration['id'])
+    def validate(self, configuration, data=None):
+        value = data or self.field.request.form.get(configuration['id'])
         value = value or ''
         lines = value.splitlines()
         results = []
@@ -81,6 +81,7 @@ class ValidatorOperatoriAggiudicatari(object):
             elif ruolo:
                 roles_count += 1
 
+
 class ValidatorDates(object):
     """Two dates in the format YYYY-MM-DD, with a middle separator"""
     implements(IFieldValidator)
@@ -88,7 +89,7 @@ class ValidatorDates(object):
     def __init__(self, field):
         self.field = field
 
-    def validate(self, configuration):
-        value = self.field.request.form.get(configuration['id'])
-        if value and not re.match(config.DATES_MODEL, value):
-            return _('error_no_dates', default='Provide two dates in the format YYYY-MM-DD')
+    def validate(self, configuration, data=None):
+        value = data or self.field.request.form.get(configuration['id'])
+        if value and not re.match(config.DATES_MODEL, value) and not re.match(config.IT_DATES_MODEL, value):
+            return _('error_no_dates', default='Provide two dates in the format YYYY-MM-DD or DD-MM-YYYY')
