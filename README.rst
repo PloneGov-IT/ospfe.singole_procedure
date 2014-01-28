@@ -87,7 +87,7 @@ Struttura del documento
 Il prodotto da' per scontato che la tabella generata abbia una ben definita struttura a *9 colonne*
 definite in questo ordine:
 
-* **CIG** - consigliato uso della colonna "CIG" e obbligatorietà
+* **CIG** - consigliato uso della colonna "CIG" (non obbligatorio, vedere `le FAQ`__)
 * **Struttura proponente**  - consigliato uso della colonna "Struttura proponente" e obbligatorietà
 * **Oggetto del bando** - consigliato uso della colonna "Oggetto" e obbligatorietà
 * **Procedura di scelta del contraente** - consigliato uso della colonna "Procedura scelta contraente"
@@ -96,6 +96,8 @@ definite in questo ordine:
 * **Importo di aggiudicazione** - consigliato uso della colonna "Numerico" o "Monetario"
 * **Tempi completamento** - consigliato uso della colonna "Date"
 * **Importo somme liquidate** - consigliato uso della colonna "Numerico" o "Monetario"
+
+__ http://www.avcp.it/portal/public/classic/FAQ/faq_legge190_2012#sezioneC
 
 XML e Validazione
 =================
@@ -127,17 +129,30 @@ sugli oggetti Collezione.
 Crediti
 =======
 
-Sviluppato col supporto dell'`Ospedale S. Anna, Ferrara`__; l'Ospedale S. Anna supporta
-`l'iniziativa PloneGov`__.
 
-.. image:: http://www.ospfe.it/ospfe-logo.jpg
-   :alt: OspFE logo
+Credits
+=======
+
+Sviluppato col supporto di:
+
+* `Ospedale Sant'Anna, Ferrara`__
+
+  .. image:: http://www.ospfe.it/ospfe-logo.jpg 
+     :alt: Logo Ospedale S. Anna
+  
+* `Azienda USL Ferrara`__
+
+  .. image:: http://www.ausl.fe.it/logo_ausl.gif
+     :alt: Logo Azienda AUSL
+
+Questi enti supportano `L'iniziativa PloneGov`__.
 
 __ http://www.ospfe.it/
+__ http://www.ausl.fe.it/
 __ http://www.plonegov.it/
 
 Autori
-=======
+======
 
 Questo prodotto è stato sviluppato da RedTurtle Technology.
 

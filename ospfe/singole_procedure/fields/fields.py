@@ -36,10 +36,18 @@ class OggettoField(TextAreaField):
     """A text field for subject (limited to 250 chars)"""
     implements(IOggettoColumnField, IMax250CharsColumnField)
 
+    def __init__(self, context, request):
+        TextAreaField.__init__(self, context, request)
+        self.rows = 10
+
 
 class OperatoriAggiudicatariField(TextAreaField):
     """A text area for storing data in a proper regex format for <partecipanti>/<aggiudicatari> nodes"""
     implements(IOperatoriAggiudicatariColumnField)
+
+    def __init__(self, context, request):
+        TextAreaField.__init__(self, context, request)
+        self.rows = 10
 
 
 class SceltaContraenteField(SelectField):
