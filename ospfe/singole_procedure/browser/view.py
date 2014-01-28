@@ -163,7 +163,7 @@ class XMLValidationView(BrowserView):
         try:
             xmlschema.assertValid(lxml.etree.parse(xml_source))
         except lxml.etree.DocumentInvalid, inst:
-            self.errors = str(inst)
+            self.errors = inst.args[0].encode('utf-8')
 
     def __call__(self):
         self.validate()
