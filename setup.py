@@ -27,7 +27,7 @@ setup(name='ospfe.singole_procedure',
       install_requires=[
           'setuptools',
           'lxml',
-          'collective.tablepage'
+          'collective.tablepage>=0.5b2'
       ],
       entry_points="""
       # -*- Entry points: -*-
