@@ -4,8 +4,11 @@ Changelog
 0.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Bug: la presenza di costi con valore ``0.00`` non mostrava il nodo
+  [keul]
+- Permessa la presenza di codice fiscale/P.I. prima della ragione sociale
+  (con qualche limite)
+  [keul]
 
 0.1.0 (2014-01-29)
 ------------------

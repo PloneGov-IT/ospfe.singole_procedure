@@ -29,7 +29,8 @@ class ValidatorMax250Chars(object):
         col_id = configuration['id']
         value = data or self.field.request.form.get(configuration['id'])
         if value and len(value)>250:
-            return _('error_max_chars', default='The value for "$name" must contain no more than 250 characters ($count provided).',
+            return _('error_max_chars',
+                     default='The value for "$name" must contain no more than 250 characters ($count provided).',
                      mapping={'name': configuration.get('label', col_id).decode('utf-8'),
                               'count': len(value)})
 

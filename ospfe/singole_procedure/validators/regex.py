@@ -59,20 +59,27 @@ class ValidatorOperatoriAggiudicatari(object):
                 groups_count += 1
                 continue
             match1 = re.match(config.ACTORS_MODEL, l)
-            match2 = re.match(config.GROUP_ACTORS_MODEL, l)
-            match = match1 or match2 or None
+            match2 = re.match(config.GROUP_ACTORS_MODEL, l, re.VERBOSE)
+            match = match2 or match1 or None
             if not match:
                 return _('error_bad_member',
                          default='Line $line: not a proper format. Please insert a denomination followed by VAT/NIN.\n'
                                  'In case of a group, append also the role inside brackets',
                          mapping={'line': i+1})
-            
-            cf = match.groupdict()['cf']
+            ragione_sociale = match.groupdict().get('ragione_sociale1') or match.groupdict().get('ragione_sociale2') or ''
+            if len(ragione_sociale)>250:
+                return _('error_max_chars',
+                         default='A single denomination in the column "$name" must contain no more than 250 characters ($count provided).',
+                         mapping={'name': configuration.get('label', configuration['id']).decode('utf-8'),
+                                  'count': len(value)})
+
+            cf = match.groupdict().get('cf1') or match.groupdict().get('cf2')
             cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
             if not cf_match:
                 return _('error_bad_member_cf',
                          default='Line $line: provided value \"$value\" for VAT/NIN is invalid.',
-                         mapping={'line': i+1, 'value': cf})                
+                         mapping={'line': i+1, 'value': cf})     
+                       
             ruolo = match.groupdict().get('ruolo')
             if ruolo and ruolo not in config.RUOLO_VOCABULARY:
                 return _('error_bad_roles',

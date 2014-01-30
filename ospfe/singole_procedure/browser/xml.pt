@@ -56,14 +56,12 @@
                 <ragioneSociale tal:content="aggiudicatario/ragione_sociale">Azienda 1</ragioneSociale>
             </aggiudicatario>
         </aggiudicatari>
-        <importoAggiudicazione tal:condition="row/importo_aggiudicazione"
-                               tal:content="row/importo_aggiudicazione">1000.00</importoAggiudicazione>
+        <importoAggiudicazione tal:content="row/importo_aggiudicazione">1000.00</importoAggiudicazione>
         <tempiCompletamento tal:condition="row/tempi_completamento">
             <dataInizio tal:content="row/tempi_completamento/dstart">2012-08-13</dataInizio>
             <dataUltimazione tal:content="row/tempi_completamento/dend">2012-08-13</dataUltimazione>
         </tempiCompletamento>
-        <importoSommeLiquidate tal:condition="row/importo_somme_liquidate"
-                               tal:content="row/importo_somme_liquidate">1000.00</importoSommeLiquidate>
+        <importoSommeLiquidate tal:content="row/importo_somme_liquidate">1000.00</importoSommeLiquidate>
     </lotto>
 </data>
 

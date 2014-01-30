@@ -81,11 +81,11 @@ class SingoleProcedureXMLView(BrowserView):
         for g in groups:
             inner_result = []
             for l in g.splitlines():
-                match = re.match(config.GROUP_ACTORS_MODEL, l)
+                match = re.match(config.GROUP_ACTORS_MODEL, l, re.VERBOSE)
                 if match:
                     result = {'cf': '', 'ragione_sociale': '', 'ruolo': ''}
-                    result['ragione_sociale'] = match.groupdict()['ragione_sociale']
-                    cf = match.groupdict()['cf']
+                    result['ragione_sociale'] = match.groupdict().get('ragione_sociale1') or match.groupdict().get('ragione_sociale2')
+                    cf = match.groupdict().get('cf1') or match.groupdict().get('cf2')
                     cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
                     if cf_match:
                         result['cf'] = cf
@@ -105,8 +105,8 @@ class SingoleProcedureXMLView(BrowserView):
             match = re.match(config.ACTORS_MODEL, l)
             if match:
                 result = {'cf': '', 'ragione_sociale': '', }
-                result['ragione_sociale'] = match.groupdict()['ragione_sociale']
-                cf = match.groupdict()['cf']
+                result['ragione_sociale'] = match.groupdict().get('ragione_sociale1') or match.groupdict().get('ragione_sociale2')
+                cf = match.groupdict().get('cf1') or match.groupdict().get('cf2')
                 cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
                 if cf_match:
                     result['cf'] = cf
