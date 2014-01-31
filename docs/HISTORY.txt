@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.1.1 (unreleased)
+0.2.0 (2014-01-31)
 ------------------
 
 - Bug: la presenza di costi con valore ``0.00`` non mostrava il nodo
