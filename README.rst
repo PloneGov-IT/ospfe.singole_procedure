@@ -126,10 +126,6 @@ Limiti
 Non viene fornito un XML per l'indice dei dataset. Ipoteticamente potrebbe essere fatto con una vista apposita
 sugli oggetti Collezione.
 
-Crediti
-=======
-
-
 Credits
 =======
 
