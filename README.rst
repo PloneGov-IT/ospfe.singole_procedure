@@ -55,7 +55,8 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
 ``Struttura proponente``
     Un campo stringa che al salvataggio verifica i dati inseriti.
     
-    Tali dati *devono* includere una denominazione (massimo 250 caratteri) seguita o receduta dal codice fiscale o partita I.V.A.
+    Tali dati *devono* includere una denominazione (massimo 250 caratteri) seguita o preceduta dal codice fiscale o
+    partita I.V.A.
 ``Oggetto``
     Oggetto del bando, limitato a 250 caratteri
 ``Procedura scelta contraente``
@@ -67,7 +68,8 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
     Ogni elemento deve essere composto dalla denominazione seguita dal codice fiscale o partita I.V.A.
     
     In presenza di consorziate va infine posto (tra parentesi) il ruolo, secondo il vocabolario definito dallo schema XSD.
-    Le corsorziate definiscono quindi un gruppo, che va separato dagli altri gruppi, o dai partecipanti/aggiudicatari singoli,
+    Le corsorziate definiscono quindi un gruppo, che va separato dagli altri gruppi, o dai partecipanti/aggiudicatari
+    singoli,
     da una riga vuota.
 ``Date``
     Un campo stringa per l'inserimento delle due date. Le date devono essere nel formato AAAA-MM-GG o anche nel
@@ -107,8 +109,8 @@ Per esempio:
 
     http://host.com/percorso/alla/pagina-con-tabella/dataset.xml
 
-Prima di esporre il sorgente XML è possibile effettuare una validazione dello stesso. Dalla pagina di modifica della tabella
-sarà ora disponibile un nuovo link "*Valida XML*", che eseguirà la validazione secondo lo schema fornito da AVCP.
+Prima di esporre il sorgente XML è possibile effettuare una validazione dello stesso. Dalla pagina di modifica della
+tabella sarà ora disponibile un nuovo link "*Valida XML*", che eseguirà la validazione secondo lo schema fornito da AVCP.
 
 .. image:: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-03.png/image_large
    :alt: Configurazione tabella
@@ -124,7 +126,9 @@ Limiti
 ======
 
 Non viene fornito un XML per l'indice dei dataset. Ipoteticamente potrebbe essere fatto con una vista apposita
-sugli oggetti Collezione.
+sugli oggetti Collezione (`pull request`__ a riguardo sono ben accette!).
+
+__ https://github.com/PloneGov-IT/ospfe.singole_procedure/pulls
 
 Crediti
 =======
