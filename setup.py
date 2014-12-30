@@ -7,7 +7,7 @@ setup(name='ospfe.singole_procedure',
       version=version,
       description="Pubblicazione dei dati ai sensi dell'art. 1 comma 32 Legge n. 190/2012, con collective.tablepage",
       long_description=open("README.rst").read() + "\n" +
-                       open(os.path.join("docs", "HISTORY.txt")).read(),
+                       open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?:action=list_classifiers
       classifiers=[

@@ -9,6 +9,9 @@ Changelog
   [keul]
 - Aggiunge funzionalità di debug
   [keul]
+- Fix alle regex per gesitre casi sfortunati in cui la denominazione può essere
+  scambiata per un C.F. o P. IVA.
+  [keul]
 
 0.2.0 (2014-01-31)
 ------------------
