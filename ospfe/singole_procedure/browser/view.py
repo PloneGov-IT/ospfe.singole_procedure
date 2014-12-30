@@ -13,6 +13,10 @@ from ospfe.singole_procedure import config
 class SingoleProcedureXMLView(BrowserView):
     """Rendere XML as defined by http://dati.avcp.it/schema/datasetAppaltiL190.xsd"""
 
+    def __init__(self, context, request):
+        BrowserView.__init__(self, context, request)
+        self.strip_invalid = True
+
     def __call__(self, *args, **kwargs):
         self.request.response.setHeader('Content-Type', 'text/xml')
         return self.index()
@@ -24,6 +28,9 @@ class SingoleProcedureXMLView(BrowserView):
 
     def modified(self):
         return self.context.modified().strftime('%Y-%m-%d')
+
+    def anno_riferimento(self):
+        return self.context.getProperty('anno_riferimento', None) or '2013'
 
     def rows(self, storage=None, headers=None):
         """Iterate on rows on the table"""
@@ -67,7 +74,7 @@ class SingoleProcedureXMLView(BrowserView):
             cf = match.groupdict().get('cf1') or match.groupdict().get('cf2') 
             result['denominazione'] = match.groupdict().get('denominazione1') or match.groupdict().get('denominazione2')
             cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
-            if cf_match:
+            if cf_match or not self.strip_invalid:
                 result['cf'] = cf
         return result
 
@@ -87,10 +94,12 @@ class SingoleProcedureXMLView(BrowserView):
                     result['ragione_sociale'] = match.groupdict().get('ragione_sociale1') or match.groupdict().get('ragione_sociale2')
                     cf = match.groupdict().get('cf1') or match.groupdict().get('cf2')
                     cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
-                    if cf_match:
+                    if cf_match or not self.strip_invalid:
                         result['cf'] = cf
                     result['ruolo'] = match.groupdict()['ruolo']
                     inner_result.append(result)
+                elif not self.strip_invalid:
+                    inner_result.append({'cf': l, 'ragione_sociale': l, 'ruolo': l})
             if inner_result:
                 results.append(inner_result)
         return results
@@ -108,9 +117,11 @@ class SingoleProcedureXMLView(BrowserView):
                 result['ragione_sociale'] = match.groupdict().get('ragione_sociale1') or match.groupdict().get('ragione_sociale2')
                 cf = match.groupdict().get('cf1') or match.groupdict().get('cf2')
                 cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
-                if cf_match:
+                if cf_match or not self.strip_invalid:
                     result['cf'] = cf
                 results.append(result)
+            elif not self.strip_invalid:
+                results.append({'cf': l, 'ragione_sociale': l, })
         return results
 
     def _get_tempi_completamento(self, data):
@@ -122,6 +133,8 @@ class SingoleProcedureXMLView(BrowserView):
         if match:
             result['dstart'] = match.groupdict()['start']
             result['dend'] = match.groupdict()['end']
+        elif not self.strip_invalid:
+            result['dstart'] = result['dend'] = data
         else:
             # 2. in the italian format
             match = re.match(config.IT_DATES_MODEL, data)
@@ -168,4 +181,3 @@ class XMLValidationView(BrowserView):
     def __call__(self):
         self.validate()
         return self.index()
-

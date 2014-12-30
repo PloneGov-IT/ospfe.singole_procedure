@@ -1,11 +1,14 @@
 Changelog
 =========
 
-0.2.1 (unreleased)
+0.3.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- ``annoRiferimento`` viene letto (potenzialmente) da una CMF property.
+  Il default rimane al 2013 per compatibilità con l'anno scorso
+  [keul]
+- Aggiunge funzionalità di debug
+  [keul]
 
 0.2.0 (2014-01-31)
 ------------------

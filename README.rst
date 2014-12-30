@@ -117,6 +117,12 @@ tabella sarà ora disponibile un nuovo link "*Valida XML*", che eseguirà la val
    :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-03.png
    :align: center
 
+Dato ``annoRiferimento``
+------------------------
+
+All'interno del file XML generato è presente un elemento ``annoRiferimento`` che di base viene valorizzato a
+*2013*. È possibile cambiare tale scelta aggiungendo al contenuto una CMF property di nome ``anno_riferimento``.
+
 Dipendenze e versioni
 =====================
 
