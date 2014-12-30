@@ -76,6 +76,8 @@ class SingoleProcedureXMLView(BrowserView):
             cf_match = re.match(config.CF_MODEL, cf, re.VERBOSE)
             if cf_match or not self.strip_invalid:
                 result['cf'] = cf
+        elif not self.strip_invalid:
+            return {'cf': data, 'denominazione': data}
         return result
 
     def _get_groups_actors(self, data):
