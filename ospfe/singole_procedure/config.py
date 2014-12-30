@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-STRUTTURA_PROPONENTE_MODEL = r"""^\s*((?P<denominazione1>.+)\s+(?P<cf1>[a-zA-Z0-9]{11,}))|((?P<cf2>[a-zA-Z0-9]{11,})\s+(?P<denominazione2>.+))\s*$"""
+STRUTTURA_PROPONENTE_MODEL = r"""^\s*((?P<cf1>[a-zA-Z0-9]{11,})\s+(?P<denominazione1>.+))|((?P<denominazione2>.+)\s+(?P<cf2>[a-zA-Z0-9]{11,}))\s*$"""
 CF_MODEL = r"""^(
     [A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9A-Za-z]{3}[A-Za-z]{1} |
     [A-Za-z]{6}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{3}[A-Za-z]{1} |
