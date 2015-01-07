@@ -43,11 +43,11 @@ class SingoleProcedureXMLView(BrowserView):
                 headers = [h['id'] for h in configuration]
             
             try:
-                importo_aggiudicazione = float(item.get(headers[6]) or '')
+                importo_aggiudicazione = "%0.2f" % float(item.get(headers[6]) or '')
             except ValueError:
                 importo_aggiudicazione = "0.00"
             try:
-                importo_somme_liquidate = float(item.get(headers[8]) or '')
+                importo_somme_liquidate = "%0.2f" % float(item.get(headers[8]) or '')
             except ValueError:
                 importo_somme_liquidate = "0.00"
             row = {

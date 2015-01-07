@@ -12,6 +12,8 @@ Changelog
 - Fix alle regex per gesitre casi sfortunati in cui la denominazione può essere
   scambiata per un C.F. o P. IVA.
   [keul]
+- Importi nella vista di generazione XML ora sempre in formato stringa
+  [keul]
 
 0.2.0 (2014-01-31)
 ------------------
