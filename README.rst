@@ -10,6 +10,8 @@ __ http://www.avcp.it/portal/public/classic/AttivitaAutorita/AttiDellAutorita/_A
    :target: http://blog.redturtle.it/pypi-images/ospfe.singole_procedure/ospfe.singole_procedure-0.1.0-02.png
    :align: center
 
+Una copia delle specifiche tecniche è inclusa nel sorgente del prodotto.
+
 .. contents::
 
 Installazione
