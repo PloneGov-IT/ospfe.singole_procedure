@@ -71,12 +71,12 @@ Il prodotto aggiunge una serie di nuovi tipi di colonne al solo scopo di aiutrar
     Le corsorziate definiscono quindi un gruppo, che va separato dagli altri gruppi, o dai partecipanti/aggiudicatari
     singoli,
     da una riga vuota.
-``Date``
+``Dal-Al``
     Un campo stringa per l'inserimento delle due date. Le date devono essere nel formato AAAA-MM-GG o anche nel
-    formato GG-MM-AAAA, e possono essere separate da un carattere separatore quale "-", "/".
+    formato GG-MM-AAAA, e possono essere separate da un carattere separatore quale "-" e "/".
 
 Dato che non si vuole "inquinare" il normale uso della pagina con tabella, l'attivazione delle nuove colonne avviene
-in modo puntuale.
+in modo puntuale previa attivazione dell'interfaccia, come discusso alla sezione precedente.
 
 Struttura del documento
 -----------------------
@@ -96,7 +96,7 @@ definite in questo ordine:
 * **Elenco operatori** - consigliato uso della colonna "Operatori / Aggiudicatari"
 * **Aggiudicatario** - consigliato uso della colonna "Operatori / Aggiudicatari"
 * **Importo di aggiudicazione** - consigliato uso della colonna "Numerico" o "Monetario"
-* **Tempi completamento** - consigliato uso della colonna "Date"
+* **Tempi completamento** - consigliato uso della colonna "Dal-Al"
 * **Importo somme liquidate** - consigliato uso della colonna "Numerico" o "Monetario"
 
 __ http://www.avcp.it/portal/public/classic/FAQ/faq_legge190_2012#sezioneC
@@ -126,7 +126,7 @@ All'interno del file XML generato è presente un elemento ``annoRiferimento`` ch
 Dipendenze e versioni
 =====================
 
-Il prodotto è stato testato su Plone 3.3, ma *dovrebbe* funzionare senza problemi anche su Plone 4.
+Il prodotto è stato testato su Plone 4.3, ma *dovrebbe* ancora funzionare senza problemi anche su Plone 3.3.
 
 Limiti
 ======

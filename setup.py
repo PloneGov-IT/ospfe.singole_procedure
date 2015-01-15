@@ -13,6 +13,7 @@ setup(name='ospfe.singole_procedure',
       classifiers=[
         "Framework :: Plone",
         "Framework :: Plone :: 3.3",
+        "Framework :: Plone :: 4.3",
         "Programming Language :: Python",
         ],
       keywords='plone plonegov trasparenza singole-procedure',

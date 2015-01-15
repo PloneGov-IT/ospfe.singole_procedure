@@ -4,6 +4,8 @@ Changelog
 0.3.0 (unreleased)
 ------------------
 
+Verifiche di compatibilità con Plone 4.3
+
 - ``annoRiferimento`` viene letto (potenzialmente) da una CMF property.
   Il default rimane al 2013 per compatibilità con l'anno scorso
   [keul]
@@ -13,6 +15,9 @@ Changelog
   scambiata per un C.F. o P. IVA.
   [keul]
 - Importi nella vista di generazione XML ora sempre in formato stringa
+  [keul]
+- Rinominata colonna "*Date*" in "*Dal-Al*" per namespace clash con
+  nuove colonne di tablepage 0.10
   [keul]
 
 0.2.0 (2014-01-31)

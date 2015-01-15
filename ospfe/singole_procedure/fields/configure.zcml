@@ -48,7 +48,7 @@
 	        zope.publisher.interfaces.browser.IBrowserRequest"
        provides="collective.tablepage.interfaces.IColumnField"
        factory=".fields.DatesField"
-       name="Date"
+       name="Dal-Al"
        />
 
 
