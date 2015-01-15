@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.0 (unreleased)
+0.3.0 (2015-01-15)
 ------------------
 
 Verifiche di compatibilità con Plone 4.3
