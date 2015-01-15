@@ -45,7 +45,6 @@ class ValidatorOperatoriAggiudicatari(object):
         value = data or self.field.request.form.get(configuration['id'])
         value = value or ''
         lines = value.splitlines()
-        results = []
         roles_count = 0
         groups_count = 1
         for i, l in enumerate(lines):
