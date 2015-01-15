@@ -28,7 +28,7 @@ modificare la configurazione del medesimo::
 
 ... dove *x.y.z* rappresenta la versione del prodotto da utilizzare, ad esempio::
 
-    https://github.com/PloneGov-IT/ospfe.singole_procedure/releases/download/0.1.0/ospfe.singole_procedure-0.1.0.zip
+    https://github.com/PloneGov-IT/ospfe.singole_procedure/releases/download/0.3.0/ospfe.singole_procedure-0.3.0.zip
 
 __ http://pypi.python.org/
 
