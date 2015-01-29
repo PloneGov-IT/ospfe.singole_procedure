@@ -69,7 +69,7 @@ class SingoleProcedureXMLView(BrowserView):
     def _get_struttura_proponente(self, data):
         """Return a dict as with 'cf' and 'denominazione' items"""
         result = {'cf': '', 'denominazione': ''}
-        match = re.match(config.STRUTTURA_PROPONENTE_MODEL, data, re.DOTALL)
+        match = re.match(config.STRUTTURA_PROPONENTE_MODEL, data or '', re.DOTALL)
         if match:
             cf = match.groupdict().get('cf1') or match.groupdict().get('cf2') 
             result['denominazione'] = match.groupdict().get('denominazione1') or match.groupdict().get('denominazione2')
