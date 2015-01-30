@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.1 (unreleased)
+0.3.1 (2015-01-30)
 ------------------
 
 - Migliorata affidabilità regexp
