@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-STRUTTURA_PROPONENTE_MODEL = r"""^\s*((?P<cf1>[a-zA-Z0-9]{11,})\s+(?P<denominazione1>.+))|((?P<denominazione2>.+)\s+(?P<cf2>[a-zA-Z0-9]{11,}))\s*$"""
+STRUTTURA_PROPONENTE_MODEL = r"""^\s*((?P<cf1>(?:[0-9]{11})|(?:[A-Za-z]{6}\d\d[a-zA-Z0-9]{8}))\s+(?P<denominazione1>.+))|((?P<denominazione2>.+)\s+(?P<cf2>(?:[0-9]{11})|(?:[A-Za-z]{6}\d\d[a-zA-Z0-9]{8})))\s*$"""
 CF_MODEL = r"""^(
     [A-Za-z]{6}[0-9]{2}[A-Za-z]{1}[0-9]{2}[A-Za-z]{1}[0-9A-Za-z]{3}[A-Za-z]{1} |
     [A-Za-z]{6}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{2}[A-Za-z]{1}[0-9LMNPQRSTUV]{3}[A-Za-z]{1} |
     [0-9]{11,11}
 )$"""
 ACTORS_MODEL = r"""^\s*(((?P<ragione_sociale1>[^0-9].+)\s+(?P<cf1>[a-zA-Z0-9]{11,}))|((?P<cf2>[a-zA-Z0-9]{11,})\s+(?P<ragione_sociale2>[^\(0-9].+)))\s*$"""
-GROUP_ACTORS_MODEL = r"""^\s*(((?P<ragione_sociale1>[^0-9].+)\s+(?P<cf1>[a-zA-Z0-9]{11,}))|((?P<cf2>[a-zA-Z0-9]{11,})\s+(?P<ragione_sociale2>[^0-9].+)))\s*\(\s*(?P<ruolo>[A-Z0-9-]+)\s*\)\s*$"""
+GROUP_ACTORS_MODEL = r"""^\s*(((?P<ragione_sociale1>[^0-9].+)\s+(?P<cf1>[a-zA-Z0-9]{11,}))|((?P<cf2>[a-zA-Z0-9]{11,})\s+(?P<ragione_sociale2>[^0-9].+)))\s*\(\s*(?P<ruolo>\d\d-[A-Z0-9-]+)\s*\)\s*$"""
 DATES_MODEL = r"""^\s*(?P<start>\d\d\d\d-\d\d-\d\d)\s*[;\-/_ ]\s*(?P<end>\d\d\d\d-\d\d-\d\d)\s*$"""
 IT_DATES_MODEL = r"""^\s*(?P<start_day>\d{1,2})[\-/](?P<start_month>\d{1,2})[\-/](?P<start_year>\d{4})\s*[;\-/_ ]\s*(?P<end_day>\d{1,2})[\-/](?P<end_month>\d{1,2})[\-/](?P<end_year>\d{4})\s*$""" 
 

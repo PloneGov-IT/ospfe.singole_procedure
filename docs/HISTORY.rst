@@ -4,8 +4,8 @@ Changelog
 0.3.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Migliorata affidabilità regexp
+  [keul]
 
 0.3.0 (2015-01-15)
 ------------------
@@ -17,7 +17,7 @@ Verifiche di compatibilità con Plone 4.3
   [keul]
 - Aggiunge funzionalità di debug
   [keul]
-- Fix alle regex per gesitre casi sfortunati in cui la denominazione può essere
+- Fix alle regex per gestire casi sfortunati in cui la denominazione può essere
   scambiata per un C.F. o P. IVA.
   [keul]
 - Importi nella vista di generazione XML ora sempre in formato stringa
