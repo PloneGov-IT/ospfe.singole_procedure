@@ -4,7 +4,8 @@ Changelog
 0.3.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Updated TypesL190.xsd
+  [daniele]
 
 
 0.3.1 (2015-01-30)
