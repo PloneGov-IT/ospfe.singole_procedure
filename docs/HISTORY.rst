@@ -1,12 +1,17 @@
 Changelog
 =========
 
-0.3.2 (unreleased)
+0.3.3 (unreleased)
 ------------------
 
 - Updated TypesL190.xsd
   [daniele]
 
+0.3.2 (2019-29-01)
+------------------
+
+- Updated TypesL190.xsd
+  [daniele]
 
 0.3.1 (2015-01-30)
 ------------------
