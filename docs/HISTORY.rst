@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.3 (unreleased)
+0.3.3 (2019-12-11)
 ------------------
 
 - Updated TypesL190.xsd
