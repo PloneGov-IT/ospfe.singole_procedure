@@ -4,7 +4,8 @@ Changelog
 0.3.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Changed check on effective date. Updated schema as requested.
+  [daniele]
 
 
 0.3.3 (2019-12-11)
