@@ -22,8 +22,12 @@ class SingoleProcedureXMLView(BrowserView):
         return self.index()
 
     def effective(self):
-        if self.context.getEffectiveDate():
-            return self.context.getEffectiveDate().strftime('%Y-%m-%d')
+        try:
+          date = self.context.getEffectiveDate()
+        except:
+          date = self.context.effective()
+        if date:
+            return date.strftime('%Y-%m-%d')
         return self.context.created().strftime('%Y-%m-%d')
 
     def modified(self):
