@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.4 (unreleased)
+0.3.4 (2020-01-14)
 ------------------
 
 - Changed check on effective date. Updated schema as requested.
