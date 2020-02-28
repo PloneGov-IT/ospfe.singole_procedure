@@ -8,7 +8,7 @@
 <metadata>
     <titolo tal:content="context/title">Pubblicazione 1 legge 190</titolo>
     <abstract tal:content="context/Description">Pubblicazione 1 legge 190 anno 1 rif. 2010</abstract>
-    <dataPubbicazioneDataset tal:content="view/effective">2012-08-13</dataPubbicazioneDataset>
+    <dataPubblicazioneDataset tal:content="view/effective">2012-08-13</dataPubblicazioneDataset>
     <entePubblicatore>AVCP</entePubblicatore>
     <dataUltimoAggiornamentoDataset tal:content="view/modified">2012-09-15</dataUltimoAggiornamentoDataset>
     <annoRiferimento tal:content="view/anno_riferimento">2013</annoRiferimento>
