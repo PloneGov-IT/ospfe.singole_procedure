@@ -4,8 +4,8 @@ Changelog
 0.3.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Updated definition.
+  [daniele]
 
 0.3.4 (2020-01-14)
 ------------------
