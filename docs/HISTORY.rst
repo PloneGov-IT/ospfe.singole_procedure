@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.3.5 (unreleased)
+0.3.5 (2020-03-06)
 ------------------
 
 - Updated definition.
